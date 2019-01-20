@@ -72,14 +72,13 @@ def findIndeed(job, outputFile):
     writeToCSV(outputFile, csv_contents)
 
 
-# jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
-#         "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
-#         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
-#         "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
-#         "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-#         "junior+product+owner", "product+owner"]
+jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
+        "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
+        "junior+full+stack", "full+stack", "junior+ai+software+engineer",
+        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
+        "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
+        "junior+product+owner", "product+owner"]
 
-jobs = ["devops"]
 for job in jobs:
     findIrishJobs(job,
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+",
@@ -88,4 +87,4 @@ for job in jobs:
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
                   "irishJobs-agency" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
 
-    # findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
+    findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
