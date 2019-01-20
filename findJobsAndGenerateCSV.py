@@ -5,6 +5,10 @@ import requests
 from bs4 import BeautifulSoup
 
 
+def removeSpecial(inputString):
+    return re.sub(r'\W+', '', inputString)
+
+
 def writeToCSV(filename, csvContents):
     if (len(csvContents) > 0):
         with open(filename, 'w') as f:
@@ -23,14 +27,18 @@ def findIrishJobs(title, type, outputFile):
 
     for title in titles:
         job_and_company = title.contents[1].contents[3].text.replace("\n\n\n", " ").replace("\n\n", "")
-        company = title.contents[1].contents[3].text.split("\n\n\n")[2]
 
-        if ("company reviews") in job_and_company:
-            company = company[:(company.index("company review") - 2)].replace("\n", "")
-            job_and_company = job_and_company[:(job_and_company.index("company review") - 2)]
-        job = job_and_company.replace(company, "")
-        if ("\n" in job):
-            job = job[:(job.index("\n")) - 1]
+        company = title.contents[1].contents[3].text.split("\n\n\n")[2].split("\n")[0]
+
+        if "company reviews" in job_and_company:
+            job_and_company = job_and_company.split("company reviews")
+            job = job_and_company[0].split("company reviews")[0].split(company)[0]
+        else :
+            if("\n" in job_and_company):
+                job_and_company.split("\n")[0].replace(company, "")
+            else:
+                job = job_and_company.replace(company,"")
+
 
         csv_line = job + "," + company + ", " + baseurl + title.contents[1].contents[9].contents[3].attrs['href']
         if (csv_line not in csvContents):
@@ -64,13 +72,14 @@ def findIndeed(job, outputFile):
     writeToCSV(outputFile, csv_contents)
 
 
-jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
-        "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
-        "junior+full+stack", "full+stack", "junior+ai+software+engineer",
-        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
-        "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-        "junior+product+owner", "product+owner"]
+# jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
+#         "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
+#         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
+#         "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
+#         "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
+#         "junior+product+owner", "product+owner"]
 
+jobs = ["devops"]
 for job in jobs:
     findIrishJobs(job,
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+",
@@ -79,4 +88,4 @@ for job in jobs:
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
                   "irishJobs-agency" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
 
-    findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
+    # findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
