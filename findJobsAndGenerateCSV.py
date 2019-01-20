@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 
 def writeToCSV(filename, csvContents):
-    if(len(csvContents)>1):
+    if (len(csvContents) > 0):
         with open(filename, 'w') as f:
             for csv_line in csvContents:
                 f.write(csv_line + "\n")
@@ -28,12 +28,13 @@ def findIrishJobs(title, type, outputFile):
         if ("company reviews") in job_and_company:
             company = company[:(company.index("company review") - 2)].replace("\n", "")
             job_and_company = job_and_company[:(job_and_company.index("company review") - 2)]
-
         job = job_and_company.replace(company, "")
+        if ("\n" in job):
+            job = job[:(job.index("\n")) - 1]
+
         csv_line = job + "," + company + ", " + baseurl + title.contents[1].contents[9].contents[3].attrs['href']
         if (csv_line not in csvContents):
             csvContents.append(csv_line)
-
     writeToCSV(outputFile, csvContents)
 
 
@@ -54,7 +55,7 @@ def findIndeed(job, outputFile):
             name = re.sub(r'([^\s\w]|_)+', '', str(str(title.text.split(" ")[8:]).split("\\")[:1]))
             role = re.sub(r'([^\s\w]|_)+', '', str(title.parent.text.split("\n")[2]))
             job_url = url + "&vjk=" + title.parent.attrs['data-jk']
-            csv_line = name + ", " + role + "," + job_url
+            csv_line = role + + ", " + name + " , " + job_url
 
             if csv_line not in csv_contents:
                 csv_contents.append(csv_line)
@@ -68,7 +69,7 @@ jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "
         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
         "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
         "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-        "junior+product+owner","product+owner"]
+        "junior+product+owner", "product+owner"]
 
 for job in jobs:
     findIrishJobs(job,
@@ -77,4 +78,5 @@ for job in jobs:
     findIrishJobs("junior+java+developer",
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
                   "irishJobs-agency" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
+
     findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
