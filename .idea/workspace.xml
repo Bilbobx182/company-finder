@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1786fc82-ca90-451e-b952-55a410eb15f4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/findJobsAndGenerateCSV.py" afterPath="$PROJECT_DIR$/findJobsAndGenerateCSV.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,10 +20,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="findJobsAndGenerateCSV.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="findJobsAndGenerateCSV.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/findJobsAndGenerateCSV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
+            <state relative-caret-position="578">
               <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -31,6 +32,19 @@
                 <element signature="e#393#1584#0" expanded="false" />
                 <element signature="e#1624#2617#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="255">
+                <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -62,6 +76,7 @@
         <option value="$PROJECT_DIR$/irishJobs-agencyjunior+web+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/irishJobs-companiesweb+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/findJobsAndGenerateCSV.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -651,7 +666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/findJobsAndGenerateCSV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="578">
           <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -660,6 +675,17 @@
             <element signature="e#393#1584#0" expanded="false" />
             <element signature="e#1624#2617#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="255">
+            <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
