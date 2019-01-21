@@ -22,10 +22,11 @@ def findIrishJobs(title, type, outputFile):
     baseurl = "https://www.irishjobs.ie"
     url = baseurl + "/ShowResults.aspx?Keywords=" + title + type
     result = requests.get(url)
-    soup = BeautifulSoup(result.content, "lxml")
+    soup = BeautifulSoup(result.content, "html.parser")
     titles = soup.find_all("div", {"class": re.compile(r"module job-result")})
 
     for title in titles:
+        job = ""
         job_and_company = title.contents[1].contents[3].text.replace("\n\n\n", " ").replace("\n\n", "")
 
         company = title.contents[1].contents[3].text.split("\n\n\n")[2].split("\n")[0]
@@ -40,7 +41,7 @@ def findIrishJobs(title, type, outputFile):
                 job = job_and_company.replace(company,"")
 
 
-        csv_line = job + "," + company + ", " + baseurl + title.contents[1].contents[9].contents[3].attrs['href']
+        csv_line = str(removeSpecial(job)) + "," + str(company) + ", " + baseurl + title.contents[1].contents[9].contents[3].attrs['href']
         if (csv_line not in csvContents):
             csvContents.append(csv_line)
     writeToCSV(outputFile, csvContents)
@@ -56,14 +57,14 @@ def findIndeed(job, outputFile):
         url = url.replace("{{ROLE}}", job).replace("{{LOCATION}}", "Dublin")
         url = url.replace("{{START}}", str(page_number))
         result = requests.get(url)
-        soup = BeautifulSoup(result.content, "lxml")
+        soup = BeautifulSoup(result.content, "html.parser")
 
         titles = soup.find_all("div", {"class": re.compile(r"company")})
         for title in titles:
             name = re.sub(r'([^\s\w]|_)+', '', str(str(title.text.split(" ")[8:]).split("\\")[:1]))
             role = re.sub(r'([^\s\w]|_)+', '', str(title.parent.text.split("\n")[2]))
             job_url = url + "&vjk=" + title.parent.attrs['data-jk']
-            csv_line = role + + ", " + name + " , " + job_url
+            csv_line = role  + ", " + name + " , " + job_url
 
             if csv_line not in csv_contents:
                 csv_contents.append(csv_line)
