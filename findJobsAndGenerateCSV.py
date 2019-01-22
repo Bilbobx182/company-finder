@@ -2,7 +2,7 @@ import datetime
 import os
 import platform
 import re
-
+import generateDailyMaster
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,7 +10,7 @@ today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
 
 
 def removeSpecial(inputString):
-    return re.sub(r'\W+', '', inputString)
+    return re.sub(r'[^a-zA-Z0-9]+', '', inputString)
 
 
 def writeToCSV(filename, csvContents):
@@ -88,21 +88,21 @@ def findIndeed(job, outputFile):
     writeToCSV(outputFile, csv_contents)
 
 
-# jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
-#         "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
-#         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
-#         "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
-#         "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-#         "junior+product+owner", "product+owner"]
-
-jobs = ["java+developer"]
+jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
+        "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
+        "junior+full+stack", "full+stack", "junior+ai+software+engineer",
+        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
+        "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
+        "junior+product+owner", "product+owner"]
 
 for job in jobs:
     findIrishJobs(job,
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+",
                   "irishJobs-companies" + job + today + ".csv")
-    # findIrishJobs("junior+java+developer",
-    #               "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
-    #               "irishJobs-agency" + job + today + ".csv")
-    #
-    # findIndeed(job, "indeed" + job + today + ".csv")
+    findIrishJobs("junior+java+developer",
+                  "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
+                  "irishJobs-agency" + job + today + ".csv")
+
+    findIndeed(job, "indeed" + job + today + ".csv")
+
+generateDailyMaster.createDailyMasterFile()
