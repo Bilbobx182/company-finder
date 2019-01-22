@@ -16,44 +16,30 @@
     <SUITE FILE_PATH="coverage/indeed$main.coverage" NAME="main Coverage Results" MODIFIED="1547991191295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$linkedin.coverage" NAME="linkedin Coverage Results" MODIFIED="1547747332053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$irishJobs.coverage" NAME="irishJobs Coverage Results" MODIFIED="1547993553494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/indeed$findJobsAndGenerateCSV.coverage" NAME="findJobsAndGenerateCSV Coverage Results" MODIFIED="1548101728379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/indeed$findJobsAndGenerateCSV.coverage" NAME="findJobsAndGenerateCSV Coverage Results" MODIFIED="1548176073781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="findJobsAndGenerateCSV.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/findJobsAndGenerateCSV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <element signature="e#111#149#0" expanded="false" />
-                <element signature="e#195#342#0" expanded="false" />
-                <element signature="e#1673#2672#0" expanded="false" />
+                <element signature="e#198#236#0" expanded="false" />
+                <element signature="e#2092#3090#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pydevd.py" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <file leaf-file-name="generateDailyMaster.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generateDailyMaster.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26537">
-              <caret line="1598" column="0" lean-forward="false" selection-start-line="1598" selection-start-column="0" selection-end-line="1598" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="255">
-                <caret line="15" column="10" lean-forward="false" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -85,6 +71,7 @@
         <option value="$PROJECT_DIR$/irishJobs-agencyjunior+web+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/irishJobs-companiesweb+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/generateDailyMaster.py" />
         <option value="$PROJECT_DIR$/findJobsAndGenerateCSV.py" />
       </list>
     </option>
@@ -117,7 +104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -130,6 +116,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,7 +244,7 @@
     <frame x="-8" y="22" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.059168443" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -307,19 +294,26 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/findJobsAndGenerateCSV.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/findJobsAndGenerateCSV.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="88" />
+      <option name="time" value="91" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="job_and_company.replace(company,&quot;&quot;)" language="Python" />
-        <watch expression="job_and_company.split(&quot;\n&quot;)[0].replace(company,&quot;&quot;)" language="Python" />
-        <watch expression="job_and_company.split(&quot;\n&quot;)" language="Python" />
-        <watch expression="job" language="Python" />
-        <watch expression="job + &quot;,&quot; + company + &quot;, &quot; + baseurl + title.contents[1].contents[9].contents[3].attrs['href']" language="Python" />
-        <watch expression="job_and_company[0]" language="Python" />
+        <watch expression="todayFolder + filename" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -330,9 +324,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#111#149#0" expanded="false" />
-            <element signature="e#195#342#0" expanded="false" />
-            <element signature="e#1673#2672#0" expanded="false" />
+            <element signature="e#198#236#0" expanded="false" />
+            <element signature="e#2092#3090#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -412,33 +405,15 @@
     <entry file="file://$PROJECT_DIR$/irishJobs-companies2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/main.py" />
     <entry file="file://$PROJECT_DIR$/irishJobs-agency2019-01-20.csv" />
-    <entry file="file://$PROJECT_DIR$/indeedjunior+.net+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/indeedjunior+.net+developer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+ai+software+engineer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+android+developer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+data+scientist2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+product+owner2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+scrum+master2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+system administrator2019-01-20.csv" />
-    <entry file="file://$PROJECT_DIR$/indeed.net+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/indeedandroid+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/indeed.net+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/indeedandroid+developer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/indeedai+software+engineer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+web+developer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-agencyjunior+web+developer2019-01-20.csv" />
@@ -450,76 +425,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/irishJobs-agencyweb+developer2019-01-20.csv" />
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesandroid+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjava+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-agencyjunior+java+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-agencyjunior+android+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesandroid+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjava+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-agencyjunior+java+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-agencyjunior+android+developer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-companiesweb+developer2019-01-20.csv" />
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+java+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+full+stack2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+java+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesjunior+full+stack2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/irishJobs-agencyai+software+engineer2019-01-20.csv" />
     <entry file="file://$PROJECT_DIR$/indeedsystem administrator2019-01-20.csv" />
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesios+developer2019-01-20.csv">
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesios+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/indeedjunior+java+developer2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-companiesdevops2019-01-20.csv" />
+    <entry file="file://$PROJECT_DIR$/irishJobs-agencydevops2019-01-20.csv" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/indeedjunior+java+developer2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-companiesdevops2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/irishJobs-agencydevops2019-01-20.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" lean-forward="false" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        <state relative-caret-position="26537">
+          <caret line="1598" column="0" lean-forward="false" selection-start-line="1598" selection-start-column="0" selection-end-line="1598" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -534,23 +457,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+    <entry file="file://$PROJECT_DIR$/indeedjunior+scrum+master2019-01-22.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26537">
-          <caret line="1598" column="0" lean-forward="false" selection-start-line="1598" selection-start-column="0" selection-end-line="1598" selection-end-column="0" />
+        <state relative-caret-position="-523">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generateDailyMaster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/findJobsAndGenerateCSV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <element signature="e#111#149#0" expanded="false" />
-            <element signature="e#195#342#0" expanded="false" />
-            <element signature="e#1673#2672#0" expanded="false" />
+            <element signature="e#198#236#0" expanded="false" />
+            <element signature="e#2092#3090#0" expanded="false" />
           </folding>
         </state>
       </provider>

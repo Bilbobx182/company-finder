@@ -1,8 +1,12 @@
 import datetime
+import os
+import platform
 import re
 
 import requests
 from bs4 import BeautifulSoup
+
+today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
 
 
 def removeSpecial(inputString):
@@ -10,8 +14,19 @@ def removeSpecial(inputString):
 
 
 def writeToCSV(filename, csvContents):
+    os.getcwd()
+    todayFolder = os.getcwd() + today
+    print(todayFolder)
+    if not os.path.exists(todayFolder):
+        os.makedirs(todayFolder)
+
+    if platform.system() == 'Linux':
+        file_to_write = todayFolder + "/" + filename
+    else:
+        file_to_write = todayFolder + "\\" + filename
+
     if (len(csvContents) > 0):
-        with open(filename, 'w') as f:
+        with open(file_to_write, 'w') as f:
             for csv_line in csvContents:
                 f.write(csv_line + "\n")
 
@@ -34,14 +49,14 @@ def findIrishJobs(title, type, outputFile):
         if "company reviews" in job_and_company:
             job_and_company = job_and_company.split("company reviews")
             job = job_and_company[0].split("company reviews")[0].split(company)[0]
-        else :
-            if("\n" in job_and_company):
+        else:
+            if ("\n" in job_and_company):
                 job_and_company.split("\n")[0].replace(company, "")
             else:
-                job = job_and_company.replace(company,"")
+                job = job_and_company.replace(company, "")
 
-
-        csv_line = str(removeSpecial(job)) + "," + str(company) + ", " + baseurl + title.contents[1].contents[9].contents[3].attrs['href']
+        csv_line = str(removeSpecial(job)) + "," + str(company) + ", " + baseurl + \
+                   title.contents[1].contents[9].contents[3].attrs['href']
         if (csv_line not in csvContents):
             csvContents.append(csv_line)
     writeToCSV(outputFile, csvContents)
@@ -64,7 +79,7 @@ def findIndeed(job, outputFile):
             name = re.sub(r'([^\s\w]|_)+', '', str(str(title.text.split(" ")[8:]).split("\\")[:1]))
             role = re.sub(r'([^\s\w]|_)+', '', str(title.parent.text.split("\n")[2]))
             job_url = url + "&vjk=" + title.parent.attrs['data-jk']
-            csv_line = role  + ", " + name + " , " + job_url
+            csv_line = role + ", " + name + " , " + job_url
 
             if csv_line not in csv_contents:
                 csv_contents.append(csv_line)
@@ -73,19 +88,21 @@ def findIndeed(job, outputFile):
     writeToCSV(outputFile, csv_contents)
 
 
-jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
-        "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
-        "junior+full+stack", "full+stack", "junior+ai+software+engineer",
-        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
-        "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-        "junior+product+owner", "product+owner"]
+# jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
+#         "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
+#         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
+#         "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
+#         "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
+#         "junior+product+owner", "product+owner"]
+
+jobs = ["java+developer"]
 
 for job in jobs:
     findIrishJobs(job,
                   "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+",
-                  "irishJobs-companies" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
-    findIrishJobs("junior+java+developer",
-                  "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
-                  "irishJobs-agency" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
-
-    findIndeed(job, "indeed" + job + str(datetime.datetime.today().strftime('%Y-%m-%d')) + ".csv")
+                  "irishJobs-companies" + job + today + ".csv")
+    # findIrishJobs("junior+java+developer",
+    #               "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+",
+    #               "irishJobs-agency" + job + today + ".csv")
+    #
+    # findIndeed(job, "indeed" + job + today + ".csv")
