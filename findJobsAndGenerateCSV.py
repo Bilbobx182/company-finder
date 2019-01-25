@@ -2,9 +2,11 @@ import datetime
 import os
 import platform
 import re
-import generateDailyMaster
+
 import requests
 from bs4 import BeautifulSoup
+
+import generateDailyMaster
 
 today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
 
@@ -91,9 +93,8 @@ def findIndeed(job, outputFile):
 jobs = ["java+developer", "junior+java+developer", "junior+android+developer", "android+developer",
         "junior+ios+developer", "ios+developer", "junior+devops", "devops", "junior+.net+developer", ".net+developer",
         "junior+full+stack", "full+stack", "junior+ai+software+engineer",
-        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+system administrator",
-        "system administrator", "junior+data+scientist", "data+scientist", "junior+scrum+master", "scrum+master",
-        "junior+product+owner", "product+owner"]
+        "ai+software+engineer", "junior+web+developer", "web+developer", "junior+data+scientist", "data+scientist",
+        "junior+scrum+master", "scrum+master"]
 
 for job in jobs:
     findIrishJobs(job,
