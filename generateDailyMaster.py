@@ -22,7 +22,6 @@ def createDailyMasterFile():
             content = f.readlines()
             for line in content:
                 if line not in allJobs:
-                    print(line)
                     allJobs.append(line)
 
     with open("totalFile" + today + ".csv", 'w') as f:
