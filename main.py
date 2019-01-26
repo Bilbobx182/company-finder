@@ -9,38 +9,37 @@ from bs4 import BeautifulSoup
 
 import generateDailyMaster
 
+# ToDo Remove global vars
 today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
-
-
-def removeSpecial(inputString):
-    return re.sub(r'[^a-zA-Z0-9]+', '', inputString)
-
-
 todayFolder = os.getcwd() + today
 
 
-def createTodayFolder():
+def remove_special(string_in):
+    return re.sub(r'[^a-zA-Z0-9]+', '', string_in)
+
+
+def create_today_folder():
     os.getcwd()
     if not os.path.exists(todayFolder):
         os.makedirs(todayFolder)
 
 
-def writeToCSV(filename, csvContents):
+def write_to_csv(filename, csv_contents):
     if platform.system() == 'Linux':
         file_to_write = todayFolder + "/" + filename
     else:
         file_to_write = todayFolder + "\\" + filename
 
-    if (len(csvContents) > 0):
+    if len(csv_contents) > 0:
         with open(file_to_write, 'w') as f:
-            for csv_line in csvContents:
+            for csv_line in csv_contents:
                 f.write(csv_line + "\n")
 
 
-def findIrishJobs(job, type):
-    csvContents = []
+def find_irish_jobs(job, job_type):
+    csv_contents = []
     baseurl = "https://www.irishjobs.ie"
-    url = baseurl + "/ShowResults.aspx?Keywords=" + job + type
+    url = baseurl + "/ShowResults.aspx?Keywords=" + job + job_type
     result = requests.get(url)
     soup = BeautifulSoup(result.content, "html.parser")
     titles = soup.find_all("div", {"class": re.compile(r"module job-result")})
@@ -55,21 +54,21 @@ def findIrishJobs(job, type):
             job_and_company = job_and_company.split("company reviews")
             job_result = job_and_company[0].split("company reviews")[0].split(company)[0]
         else:
-            if ("\n" in job_and_company):
+            if "\n" in job_and_company:
                 job_and_company.split("\n")[0].replace(company, "")
             else:
                 job_result = job_and_company.replace(company, "")
 
-        csv_line = str(removeSpecial(job_result)) + "," + str(company) + ", " + baseurl + \
+        csv_line = str(remove_special(job_result)) + "," + str(company) + ", " + baseurl + \
                    title.contents[1].contents[9].contents[3].attrs['href']
-        if (csv_line not in csvContents):
-            csvContents.append(csv_line)
+        if csv_line not in csv_contents:
+            csv_contents.append(csv_line)
 
-    outputFile = "irishJob" + job + today + ".csv"
-    writeToCSV(outputFile, csvContents)
+    output_file_name = "irishJob" + job + today + ".csv"
+    write_to_csv(output_file_name, csv_contents)
 
 
-def findIndeed(job):
+def find_indeed(job):
     page_number = 0
     csv_contents = []
 
@@ -91,15 +90,15 @@ def findIndeed(job):
                 csv_contents.append(csv_line)
         page_number += 10
 
-    outputFile = "indeed" + job + today + ".csv"
-    writeToCSV(outputFile, csv_contents)
+    output_file_name = "indeed" + job + today + ".csv"
+    write_to_csv(output_file_name, csv_contents)
 
 
-def create_pool(jobs, irishJobsAgency, irishJobsRecruiter):
+def create_pool(jobs, irish_jobs_agency, irish_jobs_recruiter):
     pool = Pool(processes=8)
-    pool.starmap(findIrishJobs, zip(jobs, irishJobsRecruiter))
-    pool.starmap(findIrishJobs, zip(jobs, irishJobsAgency))
-    pool.map(findIndeed, jobs)
+    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_recruiter))
+    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_agency))
+    pool.map(find_indeed, jobs)
     pool.close()
     pool.join()
 
@@ -112,12 +111,12 @@ def main():
             "ai+software+engineer", "junior+web+developer", "web+developer", "junior+data+scientist", "data+scientist",
             "junior+scrum+master", "scrum+master"]
 
-    irishJobsRecruiter = "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+irishJobs-companies"
-    irishJobsAgency = "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+irishJobs-agency"
+    irish_jobs_recruiter = "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Company&btnSubmit=+irishJobs-companies"
+    irish_jobs_agency = "&autosuggestEndpoint=%2Fautosuggest&Location=102&Category=3&Recruiter=Agency&btnSubmit=+irishJobs-agency"
 
-    createTodayFolder()
+    create_today_folder()
     print("START : " + str(datetime.datetime.now()))
-    create_pool(jobs, irishJobsAgency, irishJobsRecruiter)
+    create_pool(jobs, irish_jobs_agency, irish_jobs_recruiter)
     print("END : " + str(datetime.datetime.now()))
 
     generateDailyMaster.createDailyMasterFile()
