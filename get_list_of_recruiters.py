@@ -1,13 +1,12 @@
 import json
 import os
+import time
 from os import listdir
 from os.path import isfile, join
-import geocoder
-import time
 
+import geocoder
 import requests
 from bs4 import BeautifulSoup
-
 
 cwd = os.getcwd()
 path = cwd + "\\data"
@@ -28,6 +27,15 @@ def update_recruiters_json(data):
     with open(cwd + '\\recruiters.json', 'w') as outfile:
         json.dump(data, outfile)
 
+
+def get_lat_long_from_bing(company):
+    try:
+        g = geocoder.bing(company, key="AtV8eTK7ZuP0D1ZE0Nr_Y00AGQsy7vewgt5IwH3Vw8s4kPv5zqIQuBYCnUtmJ9JO")
+        return str(g.latlng).replace("[", "").replace("]", "")
+    except:
+        return "0,0"
+
+
 def get_address_from_google(company):
     baseurl = "https://www.google.com/search?client=firefox-b-ab&q="
     url = baseurl + "+" + company + "+" + "Dublin address"
@@ -36,10 +44,12 @@ def get_address_from_google(company):
     result = soup.find_all("span", {"class": "A1t5ne"})
 
     try:
-        print(company + " , " + result[0].contents[0].replace(",",""))
+        lat_long = get_lat_long_from_bing(result[0].contents[0].replace(",", ""))
+        print(company + " , " + result[0].contents[0].replace(",", "") + "," + str(lat_long))
     except:
-        print(company + ", NA")
-    time.sleep(7.5)
+        print(company + ", NA ,", "0,0")
+    time.sleep(10)
+
 
 def get_list_of_recruiters_from_irish_jobs():
     # Irish jobs allows us to query recruiters only, we get a list of recrutiers from here.
@@ -80,7 +90,8 @@ def get_hiring_companies():
 
     for company in companies:
         if company not in dont_search_companies:
-            get_address_from_google(company.replace("ltd",""))
+            get_address_from_google(company.replace("ltd", ""))
+
 
 def main():
     get_list_of_recruiters_from_irish_jobs()
