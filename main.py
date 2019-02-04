@@ -80,10 +80,15 @@ def find_indeed(job):
 
         titles = soup.find_all("div", {"class": re.compile(r"company")})
         for title in titles:
-            name = re.sub(r'([^\s\w]|_)+', '', str(str(title.text.split(" ")[8:]).split("\\")[:1]))
+
             role = re.sub(r'([^\s\w]|_)+', '', str(title.parent.text.split("\n")[2]))
-            job_url = url + "&vjk=" + title.parent.attrs['data-jk']
-            csv_line = role + ", " + name + " , " + job_url
+            company = re.sub(r'([^\s\w]|_)+', '', str(str(title.text.split(" ")[8:]).split("\\")[:1]))
+            url = url + "&vjk=" + title.parent.attrs['data-jk']
+            location = "NA"
+            description = "NA"
+            salary = "NA"
+
+            csv_line = role + ", " + company + "," + url + "," + location + "," + description + "," + salary
 
             if csv_line not in csv_contents:
                 csv_contents.append(csv_line)
@@ -94,9 +99,6 @@ def find_indeed(job):
 
 
 def find_jobs_ie(job):
-    print("--------")
-    print("JOB : " + job)
-    print("--------")
     csv_contents = []
 
     url = "https://www.jobs.ie/Jobs.aspx?hd_searchbutton=true&Categories=4&Regions=63&Keywords={{}}&job-search=true"
@@ -109,19 +111,55 @@ def find_jobs_ie(job):
         role = title.contents[3].contents[1].text.replace("\n", "")
         company = title.contents[5].contents[3].text.replace("\n", "")
         url = title.contents[3].contents[1].contents[1].attrs['href'].replace("\n", "")
-        companyLocation = title.contents[7].text.replace("\n", "")
-        csv_line = role + ", " + company + " , " + url + "," + companyLocation
+        location = title.contents[7].text.replace("\n", "")
+        description = "NA"
+        salary = "NA"
+        csv_line = role + ", " + company + " , " + url + "," + location + "," + description + "," + salary
         csv_contents.append(csv_line)
 
     output_file_name = "jobie" + job + today + ".csv"
     write_to_csv(output_file_name, csv_contents)
 
+
+def find_computer_jobs(job):
+    orientations = ["NORTH", "SOUTH", "CENTRAL", "WEST"]
+
+    page = 1
+    csv_contents = []
+
+    for orientation in orientations:
+        while page < 10:
+
+            url = "https://www.computerjobs.ie/jobboard/cands/jobresults.asp?c=1&bms=1&locallstRegion={{ORIENTATATION}}+Dublin&locallstIndustry=&localstrKeywords={{ROLE}}&pg=1"
+            url = url.replace("{{ROLE}}", job).replace("{{ORIENTATATION}}", orientation)
+            result = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+            soup = BeautifulSoup(result.content, "html.parser")
+
+            titles = soup.find_all("div", {"class": re.compile(r"jobInfo")})
+            for title in titles:
+                role = title.contents[1].text
+                company = title.contents[7].contents[1].text
+                url = "https://www.computerjobs.ie" + title.contents[6].contents[0].attrs['href']
+                location = "NA"
+                Description = "NA"
+                salary = title.contents[7].contents[3].text
+
+                csv_line = role + "," + company + "," + url + "," + location + "," + Description + "," + salary
+                if csv_line not in csv_contents:
+                    csv_contents.append(csv_line)
+            page += 1
+
+            output_file_name = "indeed" + job + today + ".csv"
+            write_to_csv(output_file_name, csv_contents)
+
+
 def create_pool(jobs, irish_jobs_agency, irish_jobs_recruiter):
     pool = Pool(processes=8)
-    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_recruiter))
-    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_agency))
     pool.map(find_indeed, jobs)
     pool.map(find_jobs_ie, jobs)
+    pool.map(find_computer_jobs, jobs)
+    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_recruiter))
+    pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_agency))
     pool.close()
     pool.join()
 
