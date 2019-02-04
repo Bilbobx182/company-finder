@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 
 import generateDailyMaster
 
-# ToDo Remove global vars
 today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
 todayFolder = os.getcwd() + today
 
@@ -94,11 +93,35 @@ def find_indeed(job):
     write_to_csv(output_file_name, csv_contents)
 
 
+def find_jobs_ie(job):
+    print("--------")
+    print("JOB : " + job)
+    print("--------")
+    csv_contents = []
+
+    url = "https://www.jobs.ie/Jobs.aspx?hd_searchbutton=true&Categories=4&Regions=63&Keywords={{}}&job-search=true"
+    url = url.replace("{{ROLE}}", job)
+    result = requests.get(url)
+    soup = BeautifulSoup(result.content, "html.parser")
+
+    titles = soup.find_all("article", {"class": re.compile(r"job-list-item")})
+    for title in titles:
+        role = title.contents[3].contents[1].text.replace("\n", "")
+        company = title.contents[5].contents[3].text.replace("\n", "")
+        url = title.contents[3].contents[1].contents[1].attrs['href'].replace("\n", "")
+        companyLocation = title.contents[7].text.replace("\n", "")
+        csv_line = role + ", " + company + " , " + url + "," + companyLocation
+        csv_contents.append(csv_line)
+
+    output_file_name = "jobie" + job + today + ".csv"
+    write_to_csv(output_file_name, csv_contents)
+
 def create_pool(jobs, irish_jobs_agency, irish_jobs_recruiter):
     pool = Pool(processes=8)
     pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_recruiter))
     pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_agency))
     pool.map(find_indeed, jobs)
+    pool.map(find_jobs_ie(), jobs)
     pool.close()
     pool.join()
 
