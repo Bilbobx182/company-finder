@@ -121,7 +121,7 @@ def create_pool(jobs, irish_jobs_agency, irish_jobs_recruiter):
     pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_recruiter))
     pool.starmap(find_irish_jobs, zip(jobs, irish_jobs_agency))
     pool.map(find_indeed, jobs)
-    pool.map(find_jobs_ie(), jobs)
+    pool.map(find_jobs_ie, jobs)
     pool.close()
     pool.join()
 
