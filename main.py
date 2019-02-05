@@ -10,24 +10,27 @@ from bs4 import BeautifulSoup
 import generateDailyMaster
 
 today = str(datetime.datetime.today().strftime('%Y-%m-%d'))
-todayFolder = os.getcwd() + today
 
 
 def remove_special(string_in):
     return re.sub(r'[^a-zA-Z0-9]+', '', string_in)
 
 
+# ToDo redo the multi-OS support this is could be improved.
 def create_today_folder():
-    os.getcwd()
-    if not os.path.exists(todayFolder):
-        os.makedirs(todayFolder)
+    if platform.system() == 'Linux':
+        if not os.path.exists(os.getcwd() + "/" + today):
+            os.makedirs(os.getcwd() + "/" + today)
+    else:
+        if not os.path.exists(os.getcwd()+ "\\" + today):
+            os.makedirs(os.getcwd() + "\\" + today)
 
 
 def write_to_csv(filename, csv_contents):
     if platform.system() == 'Linux':
-        file_to_write = todayFolder + "/" + filename
+        file_to_write = os.getcwd() + "/" + today + "/" + filename
     else:
-        file_to_write = todayFolder + "\\" + filename
+        file_to_write = os.getcwd() +"\\" + today + "\\" + filename
 
     if len(csv_contents) > 0:
         with open(file_to_write, 'w') as f:
