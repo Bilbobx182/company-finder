@@ -44,22 +44,23 @@ def find_irish_jobs(job, job_type):
     titles = soup.find_all("div", {"class": re.compile(r"module job-result")})
 
     for title in titles:
-        job_result = ""
+        role = ""
         job_and_company = title.contents[1].contents[3].text.replace("\n\n\n", " ").replace("\n\n", "")
 
         company = title.contents[1].contents[3].text.split("\n\n\n")[2].split("\n")[0]
 
         if "company reviews" in job_and_company:
             job_and_company = job_and_company.split("company reviews")
-            job_result = job_and_company[0].split("company reviews")[0].split(company)[0]
+            role = job_and_company[0].split("company reviews")[0].split(company)[0]
         else:
             if "\n" in job_and_company:
                 job_and_company.split("\n")[0].replace(company, "")
             else:
-                job_result = job_and_company.replace(company, "")
+                role = job_and_company.replace(company, "")
 
-        csv_line = str(remove_special(job_result)) + "," + str(company) + ", " + baseurl + \
-                   title.contents[1].contents[9].contents[3].attrs['href']
+        csv_line = str(remove_special(role)) + "," + str(company) + ", " + baseurl + \
+                   title.contents[1].contents[9].contents[3].attrs['href'] + "," + "NA" + "," + "NA" + "," + "NA"
+
         if csv_line not in csv_contents:
             csv_contents.append(csv_line)
 
