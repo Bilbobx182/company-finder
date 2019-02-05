@@ -153,7 +153,7 @@ def find_computer_jobs(job):
                     csv_contents.append(csv_line)
             page += 1
 
-            output_file_name = "indeed" + job + today + ".csv"
+            output_file_name = "computer" + job + today + ".csv"
             write_to_csv(output_file_name, csv_contents)
 
 

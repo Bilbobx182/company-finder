@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1786fc82-ca90-451e-b952-55a410eb15f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/totalFile2019-02-05.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generateDailyMaster.py" afterPath="$PROJECT_DIR$/generateDailyMaster.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,26 +14,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/indeed$main.coverage" NAME="main Coverage Results" MODIFIED="1549387723436" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/indeed$main.coverage" NAME="main Coverage Results" MODIFIED="1549389144400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$test.coverage" NAME="test Coverage Results" MODIFIED="1549308945789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$linkedin.coverage" NAME="linkedin Coverage Results" MODIFIED="1547747332053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/indeed$generateDailyMaster.coverage" NAME="generateDailyMaster Coverage Results" MODIFIED="1548177863595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/indeed$generateDailyMaster.coverage" NAME="generateDailyMaster Coverage Results" MODIFIED="1549388671118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$get_list_of_recruiters.coverage" NAME="get_list_of_recruiters Coverage Results" MODIFIED="1549135624639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$irishJobs.coverage" NAME="irishJobs Coverage Results" MODIFIED="1547993553494" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/indeed$findJobsAndGenerateCSV.coverage" NAME="findJobsAndGenerateCSV Coverage Results" MODIFIED="1548519075996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+            <state relative-caret-position="217">
+              <caret line="22" column="50" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <element signature="e#263#309#0" expanded="false" />
-                <element signature="e#2445#3606#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generateDailyMaster.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/generateDailyMaster.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +100,6 @@
         <option value="$PROJECT_DIR$/irishJobs-agencyjunior+web+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/irishJobs-companiesweb+developer2019-01-20.csv" />
         <option value="$PROJECT_DIR$/totalFile2019-01-22.csv" />
-        <option value="$PROJECT_DIR$/generateDailyMaster.py" />
         <option value="$PROJECT_DIR$/findJobsAndGenerateCSV.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/data/irishJobs-agency.net+developer2019-01-20.csv" />
@@ -117,6 +125,7 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/generateDailyMaster.py" />
       </list>
     </option>
   </component>
@@ -287,10 +296,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.get_list_of_recruiters" />
-        <item index="3" class="java.lang.String" itemvalue="Python.findJobsAndGenerateCSV" />
-        <item index="4" class="java.lang.String" itemvalue="Python.generateDailyMaster" />
+        <item index="1" class="java.lang.String" itemvalue="Python.generateDailyMaster" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.get_list_of_recruiters" />
+        <item index="4" class="java.lang.String" itemvalue="Python.findJobsAndGenerateCSV" />
       </list>
     </recent_temporary>
   </component>
@@ -383,7 +392,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="156" />
+      <option name="time" value="157" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -567,14 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generateDailyMaster.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="28" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/get_list_of_recruiters.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="61">
@@ -585,13 +586,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        <state relative-caret-position="217">
+          <caret line="22" column="50" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="22" selection-end-column="50" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <element signature="e#263#309#0" expanded="false" />
-            <element signature="e#2445#3606#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generateDailyMaster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="53" lean-forward="false" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
